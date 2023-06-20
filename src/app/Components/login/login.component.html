@@ -1,0 +1,22 @@
+<div *ngIf="!isLogin" style="display: flex; justify-content: center;">
+    <div>
+        <form [formGroup]="loginForm" (ngSubmit)="login()">
+            <legend>LOGIN</legend>
+            <div class="mb-3 mt-3">
+              <label for="email" class="form-label">Username:</label>
+              <input type="text" class="form-control" id="username" formControlName="username" placeholder="Enter username" name="username">
+            </div>
+            <div class="mb-3">
+              <label for="pwd" class="form-label">Password:</label>
+              <input type="password" class="form-control" id="password" formControlName="password" placeholder="Enter password" name="password">
+            </div>
+            <button type="submit" class="btn btn-primary">Login</button>
+          </form>
+    </div>
+</div>
+<div *ngIf="isLogin" >
+    <h3>Username : {{user}}</h3>
+    <h3>Password : {{pass}}</h3>
+    <button type="button" class="btn btn-danger m-5" (click)="logout()">Logout</button>
+    <button type="button" class="btn btn-danger m-5" (click)="delete()">Delete</button>
+</div>
